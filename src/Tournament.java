@@ -17,18 +17,28 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
         @JsonSubTypes.Type(value = Elemination.class, name = "elimination"),
         @JsonSubTypes.Type(value = League.class, name = "league")
 })
-public abstract class Tournament implements MatchInfo{
+public abstract class Tournament implements MatchInfo {
 
     @JsonProperty("id")
     private int id;
     @JsonProperty("surface")
     private String surface;
-    public Tournament() { }
-    public abstract void run(List<Player> playerList);
-    public Player playMatch(Player playerOne, Player playerTwo){
-        Match match=new Match(this);
-        return match.execute(playerOne,playerTwo);
+
+    public Tournament() {
     }
-    public int getId() { return id; }
-    public String getSurface() { return surface; }
+
+    public abstract void run(List<Player> playerList);
+
+    public Player playMatch(Player playerOne, Player playerTwo) {
+        Match match = new Match(this);
+        return match.execute(playerOne, playerTwo);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getSurface() {
+        return surface;
+    }
 }

@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -15,24 +16,31 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 public class Skills {
 
-    private static final class Fields{
-        public static final String CLAY="clay";
-        public static final String GRASS="grass";
-        public static final String HARD="hard";
+    private static final class Fields {
+        public static final String CLAY = "clay";
+        public static final String GRASS = "grass";
+        public static final String HARD = "hard";
     }
-    private Map<String,Integer> skillsMap=new HashMap();
+
+    private Map<String, Integer> skillsMap = new HashMap();
+
     @JsonProperty(Fields.CLAY)
-    public void setClay(int clayPoint) { this.skillsMap.put(Fields.CLAY,clayPoint); }
+    public void setClay(int clayPoint) {
+        this.skillsMap.put(Fields.CLAY, clayPoint);
+    }
+
     @JsonProperty(Fields.GRASS)
-    public void setGrass(int grassPoint){
-        this.skillsMap.put(Fields.GRASS,grassPoint);
+    public void setGrass(int grassPoint) {
+        this.skillsMap.put(Fields.GRASS, grassPoint);
     }
+
     @JsonProperty(Fields.HARD)
-    public void setHard(int hardPoint){
-        this.skillsMap.put(Fields.HARD,hardPoint);
+    public void setHard(int hardPoint) {
+        this.skillsMap.put(Fields.HARD, hardPoint);
     }
-    public int getSurfacePoint(String surface){
+
+    public int getSurfacePoint(String surface) {
         return this.skillsMap.get(surface);
     }
 
-  }
+}
