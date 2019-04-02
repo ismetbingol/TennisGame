@@ -1,6 +1,8 @@
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import java.util.Objects;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "id",
@@ -46,6 +48,19 @@ public class Player implements Comparable<Player> {
 
     public Skills getSkills() {
         return skills;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return id == player.id &&
+                experience == player.experience &&
+                gainExperience == player.gainExperience &&
+                totalExperience == player.totalExperience &&
+                hand.equals(player.hand) &&
+                skills.equals(player.skills);
     }
 
     @Override
