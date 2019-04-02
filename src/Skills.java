@@ -22,7 +22,7 @@ public class Skills {
         public static final String HARD = "hard";
     }
 
-    private Map<String, Integer> skillsMap = new HashMap();
+    private Map<String, Integer> skillsMap = new HashMap<String, Integer>();
 
     @JsonProperty(Fields.CLAY)
     public void setClay(int clayPoint) {
